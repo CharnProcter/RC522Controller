@@ -22,14 +22,14 @@ RC522 RFID controller library built on FlexibleI2C for ESP32, providing HTTP API
 
 ## HTTP Endpoints
 
-- `POST /rc522/init` - Initialize RC522 module
-- `GET /rc522/read_card` - Read card information
-- `GET /rc522/card_status` - Check card presence
-- `GET /rc522/status` - Get module status
-- `POST /rc522/antenna` - Control antenna
-- `GET /rc522/mifare_read` - Read MIFARE block
-- `POST /rc522/mifare_write` - Write MIFARE block
-- `GET /rc522/self_test` - Perform self test
+- `POST /initRC522` - Initialize RC522 module
+- `GET /readRFIDCard` - Read card information
+- `GET /getRFIDCardStatus` - Check card presence
+- `GET /getRC522Status` - Get module status
+- `POST /controlRC522Antenna` - Control antenna
+- `GET /readMIFAREBlock` - Read MIFARE block
+- `POST /writeMIFAREBlock` - Write MIFARE block
+- `GET /testRC522` - Perform self test
 
 ## Usage
 
@@ -87,12 +87,12 @@ rfid.mifareStopCrypto();
 
 ### Initialize RC522
 ```
-POST /rc522/init?bus_id=0&address=0x28
+POST /initRC522?bus_id=0&address=0x28
 ```
 
 ### Read Card
 ```
-GET /rc522/read_card
+GET /readRFIDCard
 ```
 Response:
 ```json
@@ -109,7 +109,7 @@ Response:
 
 ### Read MIFARE Block
 ```
-GET /rc522/mifare_read?block=4&key=FFFFFFFFFFFF
+GET /readMIFAREBlock?block=4&key=FFFFFFFFFFFF
 ```
 
 ## Hardware Connection

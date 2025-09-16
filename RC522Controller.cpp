@@ -702,7 +702,7 @@ void RC522Controller::registerCustomEndpoints(FlexibleEndpoints& endpoints) {
     endpoints.setLibraryName("RC522Controller");
 
     endpoints.addEndpoint(FLEXIBLE_ENDPOINT()
-        .route("/rc522/init")
+        .route("/initRC522")
         .summary("Initialize RC522 RFID reader")
         .description("Initialize RC522 on specified I2C bus and address")
         .params({
@@ -716,7 +716,7 @@ void RC522Controller::registerCustomEndpoints(FlexibleEndpoints& endpoints) {
     );
 
     endpoints.addEndpoint(FLEXIBLE_ENDPOINT()
-        .route("/rc522/read_card")
+        .route("/readRFIDCard")
         .summary("Read RFID card")
         .description("Read information from present RFID card")
         .responseType(JSON_RESPONSE)
@@ -726,7 +726,7 @@ void RC522Controller::registerCustomEndpoints(FlexibleEndpoints& endpoints) {
     );
 
     endpoints.addEndpoint(FLEXIBLE_ENDPOINT()
-        .route("/rc522/card_status")
+        .route("/getRFIDCardStatus")
         .summary("Get card presence status")
         .description("Check if a card is currently present")
         .responseType(JSON_RESPONSE)
@@ -736,7 +736,7 @@ void RC522Controller::registerCustomEndpoints(FlexibleEndpoints& endpoints) {
     );
 
     endpoints.addEndpoint(FLEXIBLE_ENDPOINT()
-        .route("/rc522/status")
+        .route("/getRC522Status")
         .summary("Get RC522 status")
         .description("Get RC522 module status and version information")
         .responseType(JSON_RESPONSE)
@@ -746,7 +746,7 @@ void RC522Controller::registerCustomEndpoints(FlexibleEndpoints& endpoints) {
     );
 
     endpoints.addEndpoint(FLEXIBLE_ENDPOINT()
-        .route("/rc522/antenna")
+        .route("/controlRC522Antenna")
         .summary("Control antenna")
         .description("Enable or disable RC522 antenna")
         .params({
@@ -759,7 +759,7 @@ void RC522Controller::registerCustomEndpoints(FlexibleEndpoints& endpoints) {
     );
 
     endpoints.addEndpoint(FLEXIBLE_ENDPOINT()
-        .route("/rc522/mifare_read")
+        .route("/readMIFAREBlock")
         .summary("Read MIFARE block")
         .description("Read data from MIFARE Classic block")
         .params({
@@ -773,7 +773,7 @@ void RC522Controller::registerCustomEndpoints(FlexibleEndpoints& endpoints) {
     );
 
     endpoints.addEndpoint(FLEXIBLE_ENDPOINT()
-        .route("/rc522/mifare_write")
+        .route("/writeMIFAREBlock")
         .summary("Write MIFARE block")
         .description("Write data to MIFARE Classic block")
         .params({
@@ -788,7 +788,7 @@ void RC522Controller::registerCustomEndpoints(FlexibleEndpoints& endpoints) {
     );
 
     endpoints.addEndpoint(FLEXIBLE_ENDPOINT()
-        .route("/rc522/self_test")
+        .route("/testRC522")
         .summary("Perform self test")
         .description("Run RC522 internal self test")
         .responseType(JSON_RESPONSE)
