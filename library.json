@@ -1,0 +1,30 @@
+{
+    "name": "RC522Controller",
+    "version": "1.0.0",
+    "description": "RC522 RFID controller library built on FlexibleI2C for ESP32",
+    "keywords": "esp32, rfid, rc522, i2c, nfc, mifare, automation",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/CharnProcter/RC522Controller.git"
+    },
+    "authors": [
+        {
+            "name": "Charn Procter",
+            "maintainer": true
+        }
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/CharnProcter/RC522Controller",
+    "dependencies": [
+        {
+            "name": "FlexibleI2C",
+            "version": "https://github.com/CharnProcter/FlexibleI2C.git"
+        },
+        {
+            "name": "ArduinoJson",
+            "version": "^6.21.2"
+        }
+    ],
+    "frameworks": "arduino",
+    "platforms": "espressif32"
+}
