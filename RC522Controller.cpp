@@ -750,7 +750,7 @@ void RC522Controller::registerCustomEndpoints(FlexibleEndpoints& endpoints) {
         .summary("Control antenna")
         .description("Enable or disable RC522 antenna")
         .params({
-            REQUIRED_BOOL_PARAM("enable", "Enable antenna (true/false)")
+            EndpointParam("enable", "Enable antenna (true/false)", "boolean", true)
         })
         .responseType(JSON_RESPONSE)
         .handler([this](std::map<String, String>& params) {
