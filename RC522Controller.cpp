@@ -810,7 +810,7 @@ void RC522Controller::onDeviceFound(uint8_t bus_id, uint8_t address) {
 }
 
 std::pair<String, int> RC522Controller::handleInitRC522(std::map<String, String>& params) {
-    DynamicJsonDocument response(1024);
+    JsonDocument response;
 
     if (params.find("bus_id") == params.end()) {
         response["success"] = false;
@@ -843,7 +843,7 @@ std::pair<String, int> RC522Controller::handleInitRC522(std::map<String, String>
 }
 
 std::pair<String, int> RC522Controller::handleReadCard(std::map<String, String>& params) {
-    DynamicJsonDocument response(1024);
+    JsonDocument response;
 
     if (!rc522_initialized) {
         response["success"] = false;
@@ -868,7 +868,7 @@ std::pair<String, int> RC522Controller::handleReadCard(std::map<String, String>&
 }
 
 std::pair<String, int> RC522Controller::handleCardStatus(std::map<String, String>& params) {
-    DynamicJsonDocument response(1024);
+    JsonDocument response;
 
     if (!rc522_initialized) {
         response["success"] = false;
@@ -893,7 +893,7 @@ std::pair<String, int> RC522Controller::handleCardStatus(std::map<String, String
 }
 
 std::pair<String, int> RC522Controller::handleRC522Status(std::map<String, String>& params) {
-    DynamicJsonDocument response(1024);
+    JsonDocument response;
 
     response["success"] = true;
     response["initialized"] = rc522_initialized;
@@ -911,7 +911,7 @@ std::pair<String, int> RC522Controller::handleRC522Status(std::map<String, Strin
 }
 
 std::pair<String, int> RC522Controller::handleAntennaControl(std::map<String, String>& params) {
-    DynamicJsonDocument response(1024);
+    JsonDocument response;
 
     if (!rc522_initialized) {
         response["success"] = false;
@@ -941,7 +941,7 @@ std::pair<String, int> RC522Controller::handleAntennaControl(std::map<String, St
 }
 
 std::pair<String, int> RC522Controller::handleMifareRead(std::map<String, String>& params) {
-    DynamicJsonDocument response(1024);
+    JsonDocument response;
 
     if (!rc522_initialized) {
         response["success"] = false;
@@ -1024,7 +1024,7 @@ std::pair<String, int> RC522Controller::handleMifareRead(std::map<String, String
 }
 
 std::pair<String, int> RC522Controller::handleMifareWrite(std::map<String, String>& params) {
-    DynamicJsonDocument response(1024);
+    JsonDocument response;
 
     if (!rc522_initialized) {
         response["success"] = false;
@@ -1109,7 +1109,7 @@ std::pair<String, int> RC522Controller::handleMifareWrite(std::map<String, Strin
 }
 
 std::pair<String, int> RC522Controller::handleSelfTest(std::map<String, String>& params) {
-    DynamicJsonDocument response(1024);
+    JsonDocument response;
 
     if (!rc522_initialized) {
         response["success"] = false;
@@ -1130,8 +1130,8 @@ std::pair<String, int> RC522Controller::handleSelfTest(std::map<String, String>&
     return {output, 200};
 }
 
-DynamicJsonDocument RC522Controller::cardInfoToJson(const CardInfo& card) {
-    DynamicJsonDocument doc(512);
+JsonDocument RC522Controller::cardInfoToJson(const CardInfo& card) {
+    JsonDocument doc;
 
     doc["valid"] = card.valid;
     doc["uid"] = getCardUID(card);

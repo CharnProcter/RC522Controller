@@ -175,7 +175,7 @@ protected:
     std::pair<String, int> handleSelfTest(std::map<String, String>& params);
 
     // Helper methods
-    DynamicJsonDocument cardInfoToJson(const CardInfo& card);
+    JsonDocument cardInfoToJson(const CardInfo& card);
     String statusToString(RC522Status status);
 };
 
